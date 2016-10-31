@@ -1,0 +1,13 @@
+function spectral
+X = load('../../data/german.txt');
+[m, n] = size(X);
+y = X(:, n);
+X = X(:, 1: n-1);
+W = KNN(X, 10);
+D = diag(sum(W));
+L = D - W;
+
+opt = struct('issym', true, 'isreal', true);
+[V dummy] = eigs(L, D, K, 'SM', opt);
+
+[J, C, seed] = k_medoids(X)

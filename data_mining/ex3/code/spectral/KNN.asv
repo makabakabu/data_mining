@@ -1,0 +1,18 @@
+function W = KNN(V, k)
+%V为降维后的矩阵
+%c为取k个邻居
+%W为权重矩阵
+[m, ~] = size(V);
+W = zeros(m, m);
+distance = zeros(m, 1);
+for i = 1:m
+    distance = sqrt(sum(bsxfun( @minus, V( i, : ), V ) .^2));
+    [~, index] = sort(distance);
+    W(i, :) =
+end
+[~, index] = 
+for i = 1:m*m
+    if length( W( 1, : ) ) < k
+        
+    
+    
